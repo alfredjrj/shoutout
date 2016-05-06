@@ -1,0 +1,89 @@
+
+   
+      
+      
+ <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="font-size:40px;color:white;" href="#">famousbyte</a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+        
+          <ul class="nav navbar-nav navbar-left">
+           <li>   <%= link_to 'Discover'  %></li>
+          </ul>
+           
+          <ul class="nav navbar-nav navbar-right">
+             
+          
+             
+               <% if user_signed_in? %>
+          
+        
+          <ul class="nav navbar-nav" style="padding-right:110px">
+     
+  
+       
+          <li>   <%= link_to 'Home',   home_path    %></li>
+          <li>   <%= link_to ' Sell Fame',   sell_fame_path(current_user)    %></li>
+          <li>   <%= link_to ' Get Fame',   get_fame_path(current_user)    %></li>
+          
+       
+        </ul> 
+        
+       
+      
+         <ul class="  nav navbar-nav navbar-right"   style="padding-right:10px">
+          <li class="dropdown ">
+            <a class="dropdown-toggle " data-toggle="dropdown" href="#">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="caret"> </span>
+            </a>
+            <ul class="dropdown-menu  " role="menu">
+              <li><%= link_to 'Profile', edit_user_registration_path %></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+         </ul>
+          
+         <form class="navbar-form navbar-right" >
+            <input size="50" type="text" class="form-control" placeholder="Search...">
+         </form>
+        
+        
+        
+        <% else %>
+        
+        
+            
+        
+             <%= render "devise/sessions/new" %>
+         
+        <% end %>
+            
+            
+            
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+    
+<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+ 
+
+
+<script>
+$('.dropdown-toggle').dropdown()  ;
+
+</script>

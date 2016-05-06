@@ -1,0 +1,26 @@
+  <div class="form-group" >
+            
+           
+
+          <%= form_for(@get_fame)  do |f| %>
+          
+ 
+               
+                  
+             
+                  
+                <%= f.text_area :goal , :class => 'form-control' , :placeholder=>"goal" %>
+                      
+             
+                
+                <%= f.file_field :image  , :class => 'form-control' %>
+                
+                
+           
+                <%= f.submit "save", :class => 'btn btn-primary btn-md' %>
+          
+                
+          <% end %>
+            
+          
+ </div> 

@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+
+body { padding-top: 90px; 
+ 
+    //  background-color:#333333;
+    //  background-color:  #265a88;
+  
+}
+#signin{
+    
+//   background-image: url("http://wallpaperstube.com/wp-content/uploads/2015/02/best_collection_social_media_logo_icon_wallpaper_widescreen.jpg");
+  
+}
