@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505081535) do
+ActiveRecord::Schema.define(version: 20160527072532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,26 @@ ActiveRecord::Schema.define(version: 20160505081535) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "get_fames", force: :cascade do |t|
-    t.text     "goal"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "get_fames", ["user_id"], name: "index_get_fames_on_user_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "text"
+    t.string   "tags"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "user_id"
+    t.integer  "venture_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "get_fames", ["user_id"], name: "index_get_fames_on_user_id", using: :btree
+  add_index "posts", ["venture_id"], name: "index_posts_on_venture_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "slug"
@@ -66,13 +75,13 @@ ActiveRecord::Schema.define(version: 20160505081535) do
     t.string   "ethnicity"
     t.text     "hobbies"
     t.text     "interests"
+    t.string   "youtube"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "instagram"
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "users_file_name"
-    t.string   "users_content_type"
-    t.integer  "users_file_size"
-    t.datetime "users_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -103,5 +112,6 @@ ActiveRecord::Schema.define(version: 20160505081535) do
   add_index "ventures", ["get_fame_id"], name: "index_ventures_on_get_fame_id", using: :btree
 
   add_foreign_key "get_fames", "users"
+  add_foreign_key "posts", "ventures"
   add_foreign_key "ventures", "get_fames"
 end

@@ -33,9 +33,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :about
       t.string :occupation
       t.string :ethnicity
+     
+      
+      
       t.text :hobbies
       t.text :interests
-      
+      t.string :youtube
+      t.string :twitter
+      t.string :facebook
+      t.string :instagram
 
 
       ## Lockable
@@ -43,7 +49,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
       
-      t.attachment :users, :image  
+      t.attachment :image  
       
       
       # image_file_name # The original filename of the image.

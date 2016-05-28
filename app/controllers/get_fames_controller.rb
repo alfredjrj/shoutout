@@ -2,7 +2,8 @@ class GetFamesController < ApplicationController
    
    def profile
       @user =   User.friendly.find(params[:id])
-      @get_fame = GetFame.new()
+      @get_fame = GetFame.new
+      @venture = Venture.new
   
    end 
    
@@ -35,7 +36,7 @@ class GetFamesController < ApplicationController
    private
 
     def get_fame_params
-      params.require(:get_fame).permit( :goal , :image )
+      params.require(:get_fame).permit( )
     end
 end
 

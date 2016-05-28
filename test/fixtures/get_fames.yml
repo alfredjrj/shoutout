@@ -1,13 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# one:
+
+#   goal: MyText
+#   image: 
+#   user_id: 
+
+# two:
+#   about: MyText
+#   goal: MyText
+#   image: 
+#   user_id: 
+
+
 one:
-  about: MyText
-  goal: MyText
-  image: 
-  user_id: 
+
+  user: david
+
 
 two:
-  about: MyText
-  goal: MyText
-  image: 
-  user_id: 
+ 
+  user: steve
+ 

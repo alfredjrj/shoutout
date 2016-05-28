@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   
    def after_sign_in_path_for(resource)
-  home_path
+    home_path
    end
  
   protect_from_forgery with: :exception
@@ -22,7 +22,7 @@ def configure_permitted_parameters
   
   
 end
-\
+
 
 
 end

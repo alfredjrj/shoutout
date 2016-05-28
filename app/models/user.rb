@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
     
-   has_one :get_fame
+  has_one :get_fame 
+  after_create :setup_profile
+  
   extend FriendlyId
   friendly_id :name, use: :slugged
   
@@ -13,5 +15,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
+  validates :name, presence: true ,length: { maximum: 50 , minimum: 3}
+  validates :gender  , inclusion: [true, false]
+  
+        
+
+  def setup_profile
+     self.create_get_fame # or Profile.create(user_id: self.id)
+  end
  
 end

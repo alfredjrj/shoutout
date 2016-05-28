@@ -1,0 +1,28 @@
+
+
+
+
+<% @user.get_fame.ventures.each do |venture| %>
+
+
+   <div class=" img-thumbnail image" style="position:relative">
+       <%= link_to image_tag(venture.image.url(:med) ) %>
+       <h3 class="image_text"><%= venture.title %></h3> 
+   </div> 
+       
+   <!--<span class="glyphicon glyphicon-pencil"></span>  -->
+ 
+<% end %>
+
+
+<style> 
+
+.image_text { 
+   position: absolute; 
+   top: -20px; 
+   left: 20px; 
+   width: 100%; 
+   color: white;
+}
+
+</style>

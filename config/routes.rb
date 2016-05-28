@@ -26,9 +26,15 @@ Rails.application.routes.draw do
    
 #   end
    
-     resources :get_fames, only: [:create, :destroy ] 
+    #  resources :get_fames, only: [:create, :destroy ] 
+     
+    # # namespace :get_fame do
+    
+    scope 'get_fame/' do 
      
      resources :ventures
+     
+     end 
      
      
   # The priority is based upon order of creation: first created -> highest priority.

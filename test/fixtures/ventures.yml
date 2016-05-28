@@ -1,15 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
+ 
   title: MyString
   tags: MyString
   goal: MyString
-  image: 
-
+  image_file_name: two
 two:
-  user_id: 
+
   title: MyString
   tags: MyString
   goal: MyString
-  image: 
+  image_file_name: one

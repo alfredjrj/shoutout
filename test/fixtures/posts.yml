@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  tags: MyString
+  image_file_name: two
+  venture_id: 
+
+two:
+  text: MyText
+  tags: MyString
+  image_file_name: two
+  venture_id: 
