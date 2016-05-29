@@ -6,7 +6,7 @@
 
 
    <div class=" img-thumbnail image" style="position:relative">
-       <%= link_to image_tag(venture.image.url(:med) ) %>
+       <%= link_to image_tag(venture.image.url(:med)) , venture_path(venture) %>
        <h3 class="image_text"><%= venture.title %></h3> 
    </div> 
        

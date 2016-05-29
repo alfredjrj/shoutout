@@ -23,14 +23,7 @@ class GetFamesController < ApplicationController
       
    end
    
-   
-   def view
-      @user =   User.friendly.find(params[:id])
-       @get_fame = @user.get_fame
-    #  @get_fame  = GetFame.find(1)
-    
-    #   @user.get_fame
-   end 
+  
    
    
    private

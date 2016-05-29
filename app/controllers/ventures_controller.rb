@@ -2,17 +2,16 @@ class VenturesController < ApplicationController
    
    def new
         @venture = Venture.new
-      
    end 
    
    def index
-      
         @user = current_user
-        
-        
-      
    end 
    
+   def show
+       @user = User.find(params[:id])
+       @venture = Venture.find(params[:id])
+   end
    def create
       
         @get_fame = current_user.get_fame

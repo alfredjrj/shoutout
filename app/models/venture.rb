@@ -1,6 +1,6 @@
 class Venture < ActiveRecord::Base
   belongs_to :get_fame
-  has_many :ventures , dependent: :destroy
+  has_many :posts , dependent: :destroy
   
   validates :name, presence: true 
   

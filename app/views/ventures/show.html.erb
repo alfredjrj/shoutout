@@ -1,2 +1,38 @@
 
 
+ <div class="row">
+     
+  <div class="col-md-3">
+ <%= link_to image_tag(@venture.image.url(:large))  %><br>
+<h1><%= @venture.title %></h1> <br>
+<%= link_to image_tage(@user.image.url(:small)) %>
+<%= @venture.goal %>  <br>
+<%= @venture.tags %> 
+
+</div>
+
+<div class="col-md-6">
+       
+
+
+<%= render "posts/form" %>
+
+ 
+
+
+<% @venture.posts.each  do |post| %>
+
+<div style=" background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+
+ <div class=" img-thumbnail image"><%= link_to image_tag(@venture.image.url(:med)) %></div> 
+<%=  post.text %>
+<%= link_to image_tag(post.image.url(:med)) %><br>
+<%=  post.tags %>
+
+</div>
+
+<% end %>
+
+  </div> 
+</div> 

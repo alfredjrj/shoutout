@@ -16,10 +16,18 @@ Rails.application.routes.draw do
     
      get ':id/get_fame'  => 'get_fames#profile' , as: 'get_fame'
      
-    get ':id/get_fame/info'  => 'get_fames#view' , as: 'get_fame_info'
-     
      
      get  ':id' => 'users#show'
+     
+     resources :users
+     
+     scope 'get_fame/' do 
+         resources :ventures do
+             resources :posts,  only: [:index , :create , :destroy]
+         end 
+     end
+     
+end
      
      
 #         resources :users,  only: [:show, :index ] do
@@ -30,11 +38,7 @@ Rails.application.routes.draw do
      
     # # namespace :get_fame do
     
-    scope 'get_fame/' do 
-     
-     resources :ventures
-     
-     end 
+   
      
      
   # The priority is based upon order of creation: first created -> highest priority.
@@ -91,4 +95,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

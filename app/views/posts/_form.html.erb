@@ -1,0 +1,15 @@
+
+ 
+<div class="form-group" >
+
+<%= form_for([@venture, @venture.posts.build]) do |f| %>
+  
+    <%= f.text_area :text , :class=> "form-control" , :placeholder=> "text" %>
+    <%= f.text_field :tags ,  :class=> "form-control",  :placeholder=> "tags" %>
+    <%= f.file_field :image  , :class => 'form-control' %>
+    <%= f.submit  "save",  :class => 'btn btn-primary btn-md' %>
+  
+<% end %>
+
+</div> 
+
