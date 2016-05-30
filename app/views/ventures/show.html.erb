@@ -5,7 +5,7 @@
   <div class="col-md-3">
  <%= link_to image_tag(@venture.image.url(:large))  %><br>
 <h1><%= @venture.title %></h1> <br>
-<%= link_to image_tage(@user.image.url(:small)) %>
+<%= link_to image_tag(@venture.get_fame.user.image.url(:small)) %>
 <%= @venture.goal %>  <br>
 <%= @venture.tags %> 
 

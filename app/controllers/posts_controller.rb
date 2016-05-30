@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def create
     @venture = Venture.find(params[:venture_id])
-    @post = @venture.posts.create(post_params)
+    @post = @venture.posts.build(post_params)
+    @post.save
     redirect_to venture_path(@venture)
   end
   

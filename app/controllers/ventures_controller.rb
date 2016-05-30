@@ -9,9 +9,11 @@ class VenturesController < ApplicationController
    end 
    
    def show
-       @user = User.find(params[:id])
+    #   @user = User.find(params[:id])
        @venture = Venture.find(params[:id])
-   end
+       @post = Post.new
+   end 
+    
    def create
       
         @get_fame = current_user.get_fame
