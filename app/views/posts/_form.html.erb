@@ -2,14 +2,18 @@
  
 <div class="form-group" >
 
-<%= form_for [@venture, @post] do |f| %>
+<%= form_for [@venture, @post] , remote:true do |f|  %>
    
   
     <%= f.text_area :text , class:"form-control" , placeholder:"text" %>
+
+
      <button  id="post_image_button" style="width:60px" type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-camera"></span></button> 
+     <img id="some-image" />
+
     <%= f.text_field :tags ,  class:"form-control",  placeholder:"tags" %>
     <%= f.file_field :image  , class:'form-control'  %>
-    <%= f.submit  "save",  :class => 'btn btn-primary btn-md' %>
+    <%= f.submit  "save",  class:'btn btn-primary btn-md', id:"save-post" %>
   
 <% end %>
 
@@ -17,14 +21,15 @@
 
 
 
+
 </div>
+
 
 <style>
    #post_image{
       visibility:hidden;
-      
-      
    }
+ 
 </style>
 
 <script>
@@ -35,5 +40,59 @@
       })
       
    });
+
+
+
+// $('#new_post')
+//  .fileupload({
+//     disableImageResize: false, 
+//     previewMaxWidth: 320, 
+//     previewMaxHeight: 320
+//  })
+//  .bind('fileuploadprocessalways', function(e, data)
+//  {
+//       var canvas = data.files[0].preview;
+//       var dataURL = canvas.toDataURL();
+//       $("#im").css("background-image", 'url(' + dataURL +')');
    
+//  })
+
+
+
+
+
+$(function () {
+    $('#new_post').fileupload({
+       dataType: 'json',
+      //  add: function (e, data) {
+      //       data.context = $('<button/>').text('Upload')
+      //           .appendTo(document.body)
+      //           .click(function () {
+      //              data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+      //              data.submit();
+      //           });
+      //  },
+      
+       add: function (e, data) {
+          if (data.files && data.files[0]) {
+             var reader = new FileReader();
+             reader.onload = function(e) {
+                  $('#some-image').attr('src', e.target.result);
+             }
+             reader.readAsDataURL(data.files[0]);
+           
+             
+            $("#save-post").click(function(){
+                data.submit();
+            })
+          }
+      },
+      
+       done: function (e, data) {
+            data.context.text('Upload finished.');
+       }
+    });
+});
+  
+
 </script>

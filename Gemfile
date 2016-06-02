@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise', '3.4.1'
 
+gem "jquery-fileupload-rails"
+
+
 gem 'paperclip'
 
 gem 'friendly_id', '~> 5.1.0' 

@@ -20,6 +20,16 @@ class PostsController < ApplicationController
   def edit
   end
   
+  def destroy 
+    @venture = Venture.find(params[:venture_id])
+    @post = Post.find(params[:id])
+    if @post.destroy
+       flash[:success] = "deleted!"
+       redirect_to @venture
+    end    
+  
+  end 
+  
   private
   
   def post_params

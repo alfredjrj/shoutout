@@ -17,7 +17,6 @@
 
 <%= render "posts/form" %>
 
- 
 
 
 <% @venture.posts.each  do |post| %>
@@ -27,8 +26,9 @@
 
  <div class=" img-thumbnail image"><%= link_to image_tag(@venture.image.url(:med)) %></div> 
 <%=  post.text %>
-<%= link_to image_tag(post.image.url(:med)) %><br>
+<%= link_to image_tag(post.image.url(:large)) %><br>
 <%=  post.tags %>
+<%= link_to "delete" , venture_post_path(@venture ,post) ,  method: :delete %> 
 
 </div>
 
@@ -36,3 +36,5 @@
 
   </div> 
 </div> 
+
+
