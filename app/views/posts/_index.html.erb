@@ -1,0 +1,26 @@
+
+
+<% @user.get_fame.posts.each  do |post| %>
+
+<div style=" background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+
+ <div class=" img-thumbnail image"><%= link_to image_tag(post.venture.image.url(:med)) %></div> 
+<%=  post.text %>
+<%= link_to image_tag(post.image.url(:large)) %><br>
+<%=  post.tags %>
+
+<p><%= post.created_at %> </p> <br>
+<%= link_to "              |" , venture_post_path( post.venture ,post) ,  style:"font-size:28px;", class:"glyphicon glyphicon-remove" , method: :delete %> 
+<a herf="" class="glyphicon glyphicon-refresh " style="font-size:28px;">  | </a>
+
+<a herf="" class=" glyphicon glyphicon-usd" style="font-size:28px;">   |</a>
+<a herf="" class=" glyphicon glyphicon-heart" style="font-size:28px;">   |</a>
+
+<a herf="" class="glyphicon glyphicon-retweet " style="font-size:32px; color:black;">   </a>
+<a herf="" class=" glyphicon glyphicon-usd" style="font-size:18px; right:30px; top:-4px ">   </a>
+
+
+</div>
+<br>
+<% end %>

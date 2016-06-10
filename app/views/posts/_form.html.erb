@@ -2,18 +2,26 @@
  
 <div class="form-group" >
 
-<%= form_for [@venture, @post] , remote:true do |f|  %>
+<%= form_for [@venture, @post]  do |f|  %>
    
-  
+   <div class="input-group">
+    
+     <span class="input-group-btn">
+        <button   id="post_image_button" class="btn btn-default glyphicon glyphicon-camera" style="height:54px; position:relative;" ></button>
+    </span>   
     <%= f.text_area :text , class:"form-control" , placeholder:"text" %>
+   
+      
+    </div> 
 
 
-     <button  id="post_image_button" style="width:60px" type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-camera"></span></button> 
-     <img id="some-image" />
-
+     <!--<button  id="post_image_button" style="width:60px" type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-camera"></span></button> -->
+    
+     <button  id="post-image-cancel"  type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-remove"></span></button>       
+     <img id="some-image"  />
     <%= f.text_field :tags ,  class:"form-control",  placeholder:"tags" %>
     <%= f.file_field :image  , class:'form-control'  %>
-    <%= f.submit  "save",  class:'btn btn-primary btn-md', id:"save-post" %>
+    <%= f.submit  "save",  class:'btn btn-primary btn-md', id:"save_post" %>
   
 <% end %>
 
@@ -25,16 +33,25 @@
 </div>
 
 
+
+
+
 <style>
    #post_image{
-      visibility:hidden;
+     display:none;  
+   }
+   #post-image-cancel{
+     display:none;  
+     position:relative;
+     margin-left: 400px;
    }
  
 </style>
 
 <script>
    $(document).ready(function(){
-      $("#post_image_button").click(function(){
+      $("#post_image_button").click(function(evt){
+         evt.preventDefault();
           $("#post_image").click(); 
      
       })
@@ -43,55 +60,85 @@
 
 
 
-// $('#new_post')
-//  .fileupload({
-//     disableImageResize: false, 
-//     previewMaxWidth: 320, 
-//     previewMaxHeight: 320
-//  })
-//  .bind('fileuploadprocessalways', function(e, data)
-//  {
-//       var canvas = data.files[0].preview;
-//       var dataURL = canvas.toDataURL();
-//       $("#im").css("background-image", 'url(' + dataURL +')');
-   
-//  })
 
 
 
 
 
 $(function () {
-    $('#new_post').fileupload({
-       dataType: 'json',
-      //  add: function (e, data) {
-      //       data.context = $('<button/>').text('Upload')
-      //           .appendTo(document.body)
-      //           .click(function () {
-      //              data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-      //              data.submit();
-      //           });
-      //  },
-      
-       add: function (e, data) {
-          if (data.files && data.files[0]) {
-             var reader = new FileReader();
-             reader.onload = function(e) {
-                  $('#some-image').attr('src', e.target.result);
-             }
-             reader.readAsDataURL(data.files[0]);
-           
+   
+   
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#some-image').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+        
+         $('#post-image-cancel').css('display','inline');
+            
              
-            $("#save-post").click(function(){
-                data.submit();
-            })
-          }
-      },
+             $('#post-image-cancel').click(function () {
+                $('#some-image').attr('src', "");
+               $('#post-image-cancel').css('display','none')
+                 $("#post_image").val("");
+             });
+        
+    }
+}
+
+      $("#post_image").change(function(){
+          readURL(this);
+      });
+    
+           
+   //  $('#new_post').fileupload({
+   //    // dataType: 'json',
       
-       done: function (e, data) {
-            data.context.text('Upload finished.');
-       }
-    });
+   //     add: function (e, data) {
+   //        $( "#save_post" ).unbind();
+   //       //  data.context = $('<button/>').text('Upload').appendTo(document.body);
+   //        if (data.files && data.files[0]) {
+   //           var reader = new FileReader();
+   //           reader.onload = function(e) {
+   //                $('#some-image').attr('src', e.target.result);
+   //           };
+             
+   //           reader.readAsDataURL(data.files[0]);
+            // $('#post-image-cancel').css('display','inline');
+            
+             
+            //  $('#post-image-cancel').click(function () {
+            //     $('#some-image').attr('src', "");
+            //    $('#post-image-cancel').css('display','none')
+            //  });
+               
+            //  $("#new_post").submit(function(){
+            //           return false;
+            //          //  evt.preventDefault();
+                       
+            //     });
+             
+            //  $("#save_post").click(function(e){
+             
+              
+            //     data.submit();
+               
+       
+            //  });
+      //     }
+      // },
+      
+      //  done: function (e, data) {
+      //       data.context.text('Upload finished.');
+      //  }
+   //  });
+    
+    
 });
   
 

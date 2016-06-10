@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   def create
+   
     @venture = Venture.find(params[:venture_id])
     @post = @venture.posts.build(post_params)
+    # @venture.get_fame.posts.build(post_params)
+     @get_fame = current_user.get_fame
+    @post.get_fame_id = @get_fame.id
+    # @get_fame = current_user.get_fame
     @post.save
     redirect_to venture_path(@venture)
   end
@@ -15,6 +20,8 @@ class PostsController < ApplicationController
   end
 
   def index
+    @user = Usser.find(params[:id])
+    @posts = @user.get_fame.posts
   end
 
   def edit

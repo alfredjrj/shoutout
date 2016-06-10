@@ -2,8 +2,9 @@ class GetFamesController < ApplicationController
    
    def profile
       @user =   User.friendly.find(params[:id])
-      @get_fame = GetFame.new
+    #   @get_fame = GetFame.new
       @venture = Venture.new
+      @posts = @user.get_fame.posts
   
    end 
    

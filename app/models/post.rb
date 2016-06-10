@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :venture
+  belongs_to :get_fame
   
  has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "300x300" , xlarge: "550x550" },
  :default_url => "/assets/profile-pic.png"
