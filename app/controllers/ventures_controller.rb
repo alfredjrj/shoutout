@@ -1,8 +1,6 @@
 class VenturesController < ApplicationController
    
-   def new
-        @venture = Venture.new
-   end 
+
    
    def index
         @user = current_user

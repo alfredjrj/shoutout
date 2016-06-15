@@ -1,9 +1,8 @@
 
 
-<% @user.get_fame.posts.each  do |post| %>
+<% post_resource.posts.each  do |post| %>
 
-<div style=" background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+<div class="polaroid" >
 
  <div class=" img-thumbnail image"><%= link_to image_tag(post.venture.image.url(:med)) %></div> 
 <%=  post.text %>

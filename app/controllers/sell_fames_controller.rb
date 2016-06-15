@@ -1,6 +1,6 @@
 class SellFamesController < ApplicationController
    
-   def profile
+   def show
       @user =    User.friendly.find(params[:id])
       
    end 

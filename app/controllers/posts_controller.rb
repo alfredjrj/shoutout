@@ -4,17 +4,14 @@ class PostsController < ApplicationController
     @venture = Venture.find(params[:venture_id])
     @post = @venture.posts.build(post_params)
     # @venture.get_fame.posts.build(post_params)
-     @get_fame = current_user.get_fame
+    @get_fame = current_user.get_fame
     @post.get_fame_id = @get_fame.id
     # @get_fame = current_user.get_fame
     @post.save
     redirect_to venture_path(@venture)
   end
   
-  # def new
-  #   @venture =  Venture.find(params{:venture_id})
-    
-  # end
+ 
 
   def show
   end

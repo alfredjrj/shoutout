@@ -2,53 +2,25 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
  
- <div class="row">
+<div class="row">
      
-  <div class="col-md-3">
-       <div class="thumbnail">
- <%= link_to image_tag(@venture.image.url(:large))  %>
-  <div class="caption">
-<h1><%= @venture.title %></h1> 
+    <div class="col-md-3">
+         <div class="thumbnail">
+            <%= link_to image_tag(@venture.image.url(:large))  %>
+                <div class="caption">
+                <h1><%= @venture.title %></h1> 
+                <%= link_to image_tag(@venture.get_fame.user.image.url(:small)) %>
+                <%= @venture.goal %>  <br>
+                <%= @venture.tags %> 
+                </div>
+        </div>
+    </div>
 
-
-<%= link_to image_tag(@venture.get_fame.user.image.url(:small)) %>
-<%= @venture.goal %>  <br>
-<%= @venture.tags %> 
-</div>
-</div>
-</div>
-
-<div class="col-md-6">
-       
-
-
-<%= render "posts/form" %>
-
-
-
-<% @venture.posts.each  do |post| %>
-
-<div style=" background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
-
- <div class=" img-thumbnail image"><%= link_to image_tag(@venture.image.url(:med)) %></div> 
-<%=  post.text %>
-<%= link_to image_tag(post.image.url(:large)) %><br>
-<%=  post.tags %>
-<%= link_to "              |" , venture_post_path(@venture ,post) ,  style:"font-size:28px;", class:"glyphicon glyphicon-remove" , method: :delete %> 
-<a herf="" class="glyphicon glyphicon-refresh " style="font-size:28px;">  | </a>
-
-<a herf="" class=" glyphicon glyphicon-usd" style="font-size:28px;">   |</a>
-<a herf="" class=" glyphicon glyphicon-heart" style="font-size:28px;">   |</a>
-
-<a herf="" class="glyphicon glyphicon-retweet " style="font-size:32px; color:black;">   </a>
-<a herf="" class=" glyphicon glyphicon-usd" style="font-size:18px; right:30px; top:-4px ">   </a>
-
-</div>
-<br>
-<% end %>
-
-  </div> 
+    <div class="col-md-6">
+        <%= render "posts/form" %>
+        <%= render "posts/index",  post_resource: @venture %>      
+    </div> 
+  
 </div> 
 
 

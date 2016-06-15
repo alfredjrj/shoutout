@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 #   get 'user_id', to: 'devise/sessions#new', as: :login
 # end
      
-     get ':id/sell_fame'  => 'sell_fames#profile',  as: 'sell_fame'
+     get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
     
-     get ':id'  => 'get_fames#profile' , as: 'get_fame'
+     get ':id'  => 'get_fames#show' , as: 'get_fame'
      
      
     #  get  ':id' => 'users#show'
