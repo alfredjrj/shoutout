@@ -4,7 +4,7 @@ class GetFame < ActiveRecord::Base
   has_many :ventures 
   has_many :posts
   
-  validates :user, presence: true
+  validates :user_id, presence: true
 
 end
 

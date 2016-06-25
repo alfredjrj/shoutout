@@ -6,8 +6,7 @@ class GetFameTest < ActiveSupport::TestCase
   # end
   
    def setup
-    @user = User.find(4)
-    
+    @user = User.create(name:"alfred"  , email: "alfred12@gmail.com"  , password:"whatdouwant" ,gender:"true")
     @get_fame = @user.get_fame
    end
    
@@ -19,4 +18,6 @@ class GetFameTest < ActiveSupport::TestCase
      @get_fame.user_id = nil
      assert_not @get_fame.valid?
    end 
+   
+   
 end

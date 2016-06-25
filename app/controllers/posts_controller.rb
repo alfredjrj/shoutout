@@ -16,10 +16,6 @@ class PostsController < ApplicationController
   def show
   end
 
-  def index
-    @user = Usser.find(params[:id])
-    @posts = @user.get_fame.posts
-  end
 
   def edit
   end
@@ -37,7 +33,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:text, :image ,:tags)  
+    params.require(:post).permit(:text, :image )  
   end 
   
 end

@@ -2,99 +2,21 @@
  
 <div class="form-group" >
 
-<%= form_for [@venture, @post]  do |f|  %>
-   
-   <div class="input-group">
-    
-     <span class="input-group-btn">
-        <button   id="post_image_button" class="btn btn-default glyphicon glyphicon-camera" style="height:54px; position:relative;" ></button>
-    </span>   
-    <%= f.text_area :text , class:"form-control" , placeholder:"text" %>
-   
+    <%= form_for [@venture, @post]  do |f|  %>
+       
+        <%= f.text_area :text , class:"form-control" , placeholder:"text" %>
+         <button  type=button class="btn btn-defaul  btn-block image_button" ><span class="glyphicon glyphicon-camera"></span></button> 
+        <%= f.submit  "save",  class:'btn btn-primary btn-md btn-block' %>
+        <%= f.file_field :image  , class:'form-control image-file'  %><br>
+       
+        <img class="some-image"  />
       
-    </div> 
-
-
-     <!--<button  id="post_image_button" style="width:60px" type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-camera"></span></button> -->
-    
-     <button  id="post-image-cancel"  type=button class="btn btn-default" aria-label=Help><span class="glyphicon glyphicon-remove"></span></button>       
-     <img id="some-image"  />
-    <%= f.text_field :tags ,  class:"form-control",  placeholder:"tags" %>
-    <%= f.file_field :image  , class:'form-control'  %>
-    <%= f.submit  "save",  class:'btn btn-primary btn-md', id:"save_post" %>
-  
-<% end %>
-
-
-
-
-
-
+    <% end %>
 </div>
 
 
 
-
-
-<style>
-   #post_image{
-     display:none;  
-   }
-   #post-image-cancel{
-     display:none;  
-     position:relative;
-     margin-left: 400px;
-   }
- 
-</style>
-
-<script>
-   $(document).ready(function(){
-      $("#post_image_button").click(function(evt){
-         evt.preventDefault();
-          $("#post_image").click(); 
-     
-      })
-      
-   });
-
-
-
-
-
-
-
-
-$(function () {
-   
-   
-function readURL(input) {
-
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#some-image').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-        
-         $('#post-image-cancel').css('display','inline');
-            
-             
-             $('#post-image-cancel').click(function () {
-                $('#some-image').attr('src', "");
-               $('#post-image-cancel').css('display','none')
-                 $("#post_image").val("");
-             });
-        
-    }
-}
-
-      $("#post_image").change(function(){
-          readURL(this);
-      });
-    
+<script> 
            
    //  $('#new_post').fileupload({
    //    // dataType: 'json',
@@ -139,7 +61,7 @@ function readURL(input) {
    //  });
     
     
-});
+// });
   
 
 </script>

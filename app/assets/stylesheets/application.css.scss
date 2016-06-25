@@ -20,7 +20,20 @@
 @import 'bootstrap/theme';
 
 
+.nav-pills > li.active >a, .btn-primary{
+    
+    background-color:#cc0052 !important;
+}
+
+// .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+
+//   background-color: #A6A8C1;
+//   border-color: #31347B;
+//  }
+
+
 body { padding-top: 90px; 
+       
  
     //  background-color:#333333;
     //  background-color:  #265a88;
@@ -38,3 +51,22 @@ body { padding-top: 90px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
+
+
+
+
+*{
+  border-radius: 0 !important;
+}
+
+.image-file{
+ display:none;  
+}
+.image-cancel{
+ display:none;  
+ position:relative;
+ margin-left: 400px;
+}
+ 
+
+

@@ -14,16 +14,17 @@ Rails.application.routes.draw do
      
      get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
     
-     get ':id'  => 'get_fames#show' , as: 'get_fame'
+    #  get ':id'  => 'get_fames#show' , as: 'get_fame'
      
      
-    #  get  ':id' => 'users#show'
+    get  ':id' => 'users#show'  , as: 'user'
      
-     resources :users
+    get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'
+    #  resources :users
      
      
-         resources :ventures do
-             resources :posts,  only: [:index , :create , :destroy]
+         resources :ventures  do
+             resources :posts,  only: [ :create , :destroy]
          end 
    
      
