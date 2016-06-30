@@ -7,8 +7,11 @@ class UsersController < ApplicationController
       @user =   User.friendly.find(params[:id])
       @venture = Venture.new
       @posts = @user.get_fame.posts
-    #   debugger
-  
+    
+    end 
+    
+    def home
+       
     end 
    
    private 

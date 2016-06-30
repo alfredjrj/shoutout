@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
   
   
-  devise_for :users 
-    root 'welcome#index'
-    
+  get 'discover' => 'static_pages#discover'
+
   
+
+  devise_for :users 
+ 
+   root 'static_pages#main'
     
-     get 'home' => 'homes#home'
+      get 'home' => 'users#home'
      
 #     devise_scope :user do
 #   get 'user_id', to: 'devise/sessions#new', as: :login
 # end
      
-     get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
+    get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
     
-    #  get ':id'  => 'get_fames#show' , as: 'get_fame'
-     
-     
     get  ':id' => 'users#show'  , as: 'user'
      
     get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'

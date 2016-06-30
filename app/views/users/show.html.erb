@@ -5,31 +5,33 @@
 
 
 <row >
-     <div class="col-sm-4 ">
+    <div class="col-sm-4 ">
        <%=  render "layouts/sidenav_bar" %> 
-            <div class="row thumbnail" style="margin: auto; " >
-                <div class ="col-xs-6 col-md-4 " > 
-                    <div class="caption  thumbnail ">
-                        <%= link_to image_tag(@user.image.url(:med)  )%>
-                        <span class="user"><%= link_to @user.name, @user %></span>
-                         <%= @user.gender  %>
-                        <p> followers  </p>
-                        <p> following </p>
-                        <p> bytes</p>
-                        <p> good will </p>
-                     </div>
+            <section class="user_info">
+                <div class="row thumbnail" style="margin: auto; " >
+                    <div class ="col-xs-6 col-md-4 " > 
+                        <div class="caption  thumbnail ">
+                            <%= link_to image_tag(@user.image.url(:med)  )%>
+                            <span class="user"><%= link_to @user.name, @user %></span>
+                             <%= @user.gender  %>
+                            <p> followers  </p>
+                            <p> following </p>
+                            <p> bytes</p>
+                            <p> good will </p>
+                         </div>
+                    </div>
+                      
+                    <div class ="col-xs-6 col-md-4 " > 
+                        <h3> Bio</h3>
+                        <p > this wil be you bio gsfgs df sdf gsdfsdfsdfsdfsdf garg a dfasdfa sdf asdf asdfasdf asdf asddf asdf dfgs dfsdfo</p> 
+                    </div> 
                 </div>
-                  
-                <div class ="col-xs-6 col-md-4 " > 
-                    <h3> Bio</h3>
-                    <p > this wil be you bio gsfgs df sdf gsdfsdfsdfsdfsdf garg a dfasdfa sdf asdf asdfasdf asdf asddf asdf dfgs dfsdfo</p> 
-                </div> 
-            </div>
+            </section>
 
            
            
-                <%= render "ventures/form" %><br>
-       <%= render "ventures/index" %> 
+            <%= render "ventures/form" %><br>
+            <%= render "ventures/index" %> 
     </div>
   
     <div class="col-sm-6 ">
