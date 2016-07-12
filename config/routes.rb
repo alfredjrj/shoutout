@@ -5,27 +5,32 @@ Rails.application.routes.draw do
 
   
 
-  devise_for :users 
+  devise_for :users,  :controllers => { registrations: 'registrations' }  
  
    root 'static_pages#main'
     
       get 'home' => 'users#home'
+      get 'promote' => 'users#promote'
+      
      
 #     devise_scope :user do
 #   get 'user_id', to: 'devise/sessions#new', as: :login
 # end
      
-    get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
+    # get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
     
     get  ':id' => 'users#show'  , as: 'user'
      
-    get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'
-    #  resources :users
+    # get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'
+    # delete '/ventures/:id' => 'ventures#destroy' 
+     #  resources :users
      
-     
+        scope'/(:user_id)' do
          resources :ventures  do
              resources :posts,  only: [ :create , :destroy]
          end 
+        end 
+    
    
      
 end

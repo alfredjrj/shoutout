@@ -1,6 +1,6 @@
 
 
-<% posts.each  do |post| %>
+<% @posts.each  do |post| %>
 
 <div class="thumbnail" style="margin-bottom:-4px;">
      <h3> <span class="user"><%= link_to post.venture.title, venture_path(@user, post.venture) %></span></h3>

@@ -14,9 +14,11 @@
 david:
   name: David Heinemeier Hansson
   email: david@gmail.com
-  id: 3
+  gender: true
+  encrypted_password: david1234
  
 steve:
   name: Steve Ross Kellock
   email: steve@gmail.com
-  id: 4
+  gender: false
+  encrypted_password: steve1234

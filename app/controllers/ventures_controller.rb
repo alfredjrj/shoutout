@@ -1,5 +1,5 @@
 class VenturesController < ApplicationController
-   # before_action :logged_in_user, only: [:create]
+   before_action :authenticate_user!, only: [:create, :destroy ]
 
    
    def index
@@ -20,10 +20,19 @@ class VenturesController < ApplicationController
        
         if   @venture.save
          flash[:success] = "created!"
-         redirect_to home_path
-        end
+         redirect_to current_user
+        else 
+          redirect_to current_user    
+        end 
+            
    end 
    
+   def destroy
+       @venture =  Venture.find(params[:id])
+       @venture.destroy
+       flash[:success] = "byte deleted"
+       redirect_to current_user
+   end  
    
     private
 

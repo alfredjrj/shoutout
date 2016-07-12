@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :delete ]
+    
   def create
    
     @venture = Venture.find(params[:venture_id])
@@ -8,7 +10,7 @@ class PostsController < ApplicationController
     @post.get_fame_id = @get_fame.id
     # @get_fame = current_user.get_fame
     @post.save
-    redirect_to venture_path(@venture)
+    redirect_to venture_path(current_user, @venture)
   end
   
  

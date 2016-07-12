@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-    
 
   
     def show
@@ -13,8 +12,12 @@ class UsersController < ApplicationController
     def home
        
     end 
+    
+    def promote
+    
+    end
    
    private 
  
-  
+ 
 end

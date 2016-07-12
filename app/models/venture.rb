@@ -13,3 +13,7 @@ class Venture < ActiveRecord::Base
   validates :goal,  presence: true , length: {maximum: 250 , minimum: 10} 
   validates :get_fame_id, presence: true   
 end
+
+
+
+

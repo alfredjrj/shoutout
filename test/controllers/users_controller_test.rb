@@ -5,8 +5,11 @@ class UsersControllerTest < ActionController::TestCase
   #   assert true
   # end
   
+ 
+  
   def setup
-    @user = users(:david)
+     @user = users(:david)
+ 
   end
   
   test 'should get show' do 
@@ -18,4 +21,9 @@ class UsersControllerTest < ActionController::TestCase
     get:home
     assert_response :success
   end 
+  
+  test 'should get promote' do
+    get:promote
+    assert_response :success
+  end
 end
