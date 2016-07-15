@@ -2,6 +2,6 @@ class StaticPagesController < ApplicationController
   def discover
   end
 
-  def main
+  def welcome
   end
 end

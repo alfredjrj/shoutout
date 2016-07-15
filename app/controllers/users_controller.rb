@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     
     end 
     
+    def update 
+        
+    end 
+    
     def home
        
     end 
@@ -18,6 +22,8 @@ class UsersController < ApplicationController
     end
    
    private 
- 
+#   def user_params
+#       params.require(:user).permit( :name , :image , :dob )
+#   end
  
 end

@@ -1,5 +1,5 @@
 class VenturesController < ApplicationController
-   before_action :authenticate_user!, only: [:create, :destroy ]
+  before_action :authenticate_user!, only: [:create, :destroy ]
 
    
    def index
@@ -15,14 +15,16 @@ class VenturesController < ApplicationController
    end 
     
    def create
+        #  @user =   User.friendly.find(params[:id])
+        #  @get_fame = @user.get_fame
         @get_fame = current_user.get_fame
         @venture = @get_fame.ventures.build(venture_params)
-       
-        if   @venture.save
+        if @venture.save
          flash[:success] = "created!"
-         redirect_to current_user
+         redirect_to @current_user
         else 
-          redirect_to current_user    
+          redirect_to @current_user
+          flash[:danger] = "somthing went wrong try again"
         end 
             
    end 

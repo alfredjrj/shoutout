@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users,  :controllers => { registrations: 'registrations' }  
  
-   root 'static_pages#main'
+   root 'static_pages#welcome'
     
       get 'home' => 'users#home'
       get 'promote' => 'users#promote'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     # get ':id/sell_fame'  => 'sell_fames#show',  as: 'sell_fame'
     
     get  ':id' => 'users#show'  , as: 'user'
-     
+    # put  ':id' => 'users#update', as: 'user_update'
     # get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'
     # delete '/ventures/:id' => 'ventures#destroy' 
      #  resources :users

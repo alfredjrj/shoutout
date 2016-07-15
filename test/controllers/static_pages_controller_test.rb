@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class StaticPagesControllerTest < ActionController::TestCase
+class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get discover" do
-    get :discover
+    get discover_path
     assert_response :success
   end
 
-  test "should get main" do
-    get :main
+  test "should get welcome" do
+    get root_path
     assert_response :success
   end
 

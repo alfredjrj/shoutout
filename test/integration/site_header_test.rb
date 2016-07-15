@@ -7,7 +7,6 @@ class SiteHeaderTest < ActionDispatch::IntegrationTest
   
   test "header links" do
    get root_path 
-   assert_template 'static_pages/main'
    assert_select "a[href=?]", discover_path
    
   end 

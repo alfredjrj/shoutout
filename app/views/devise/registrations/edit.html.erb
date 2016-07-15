@@ -59,6 +59,9 @@
       <%= f.select :gender, [ ["gender", "nil"] , ["Male", 1], ["Female", 0] ], {}, {class: "form-control"} %>
   </div>
 
+ <div class="actions">
+    <%= f.submit "Update" , class:"btn btn-primary btn-md" %>
+  </div><br> 
 
 <h2>  Account  </h2>
 
@@ -72,13 +75,15 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" , class:"form-control"  %>
+    <%= f.label :new_password %> <br />
+    <%= f.password_field :password, autocomplete: "new-password"  , class:"form-control"  %>
   </div>
+  
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :new_password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off"  , class:"form-control" %>
   </div>
 

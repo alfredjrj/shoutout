@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_one :get_fame ,dependent: :destroy
   after_create :setup_profile
   
+  attr_accessor :current_password
+  
   extend FriendlyId
   friendly_id :name, use: :slugged
   

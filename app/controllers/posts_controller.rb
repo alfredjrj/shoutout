@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :delete ]
+  before_action :authenticate_user!, only: [:create, :destroy ]
     
   def create
    
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.destroy
        flash[:success] = "deleted!"
-       redirect_to @venture
+       redirect_to venture_path(current_user, @venture)
     end    
   
   end 

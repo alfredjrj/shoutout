@@ -1,29 +1,31 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class UsersControllerTest <  ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-  
+  include Devise::Test::IntegrationHelpers
  
-  
+
+# test "should redirect update when not logged in" do
+# test "should redirect destroy when not logged in" do  / wrong user
+# to login
   def setup
      @user = users(:david)
- 
   end
   
   test 'should get show' do 
-    get:show, id: @user.id
+    get user_path(@user) 
     assert_response :success
   end
   
   test 'should get home' do 
-    get:home
+    get home_path
     assert_response :success
   end 
   
   test 'should get promote' do
-    get:promote
+    get promote_path
     assert_response :success
   end
 end
