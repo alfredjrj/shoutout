@@ -25,7 +25,7 @@
    $(document).ready(function(){
       $(".image_button").click(function(evt){
          evt.preventDefault();
-          $(".image-file").click(); 
+          $(".imagefile").click(); 
      
       })
       
@@ -43,6 +43,7 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('.some-image').attr('src', e.target.result);
+             $('.some-image').css('display','inline')
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -52,14 +53,15 @@ function readURL(input) {
              
              $('.image-cancel').click(function () {
                 $('.some-image').attr('src', "");
+                  $('.some-image').css('display','none')
                $('.image-cancel').css('display','none')
-                 $(".image-file").val("");
+                 $(".imagefile").val("");
              });
         
     }
 }
 
-      $(".image-file").change(function(){
+      $(".imagefile").change(function(){
           readURL(this);
       });
       

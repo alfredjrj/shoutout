@@ -11,6 +11,7 @@
                     <h1><%= @venture.title %></h1> 
                     <%= @venture.goal %>  <br>
                     <%= @venture.tags %> 
+                    <%= link_to 'manage' , edit_venture_path(@venture) %>
                 </div>
         </div> 
         
@@ -20,8 +21,7 @@
 
     <div class="col-md-6">
        <!--<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Create Byte</button>-->
-       <button type="button" class="btn btn-primary btn-lg btn-block">
-             <%= link_to " Delete |" , venture_path(@user ,@venture)  , method: :delete %> </button>
+       
         <%= render "posts/form" %>
         <%= render "posts/index" %>      
     </div> 

@@ -7,7 +7,7 @@ class PostTest < ActiveSupport::TestCase
   
   def setup
     @user = User.create(name:"alfred"  , email: "alfred12@gmail.com"  , password:"whatdouwant" ,gender:"true")
-    @venture= @user.get_fame.ventures.create(title:"music", goal: "get feed back on my music")
+    @venture= @user.profile.ventures.create(title:"music", goal: "get feed back on my music")
     @post = @venture.posts.build(text:"eadf what else")
   end 
   

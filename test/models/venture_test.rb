@@ -7,7 +7,7 @@ class VentureTest < ActiveSupport::TestCase
   
   def setup 
     @user = User.create(name:"alfred"  , email: "alfred12@gmail.com"  , password:"whatdouwant" ,gender:"true")
-    @venture= @user.get_fame.ventures.build(title:"music", goal: "get feed back on my music")
+    @venture= @user.profile.ventures.build(title:"music", goal: "get feed back on my music")
    
   end 
   
@@ -42,7 +42,7 @@ class VentureTest < ActiveSupport::TestCase
   end 
   
   test "get fame id should be present" do
-    @venture.get_fame_id = nil
+    @venture.profile_id = nil
     assert_not @venture.valid? , "missing get fame id"
   end
   

@@ -6,12 +6,14 @@
        
         <%= f.text_area :text , class:"form-control" , placeholder:"text" %>
          <button  type=button class="btn btn-defaul  btn-block image_button" ><span class="glyphicon glyphicon-camera"></span></button> 
+      
+        <%= f.file_field :image  , class:'form-control imagefile'  %><br>
         <%= f.submit  "save",  class:'btn btn-primary btn-md btn-block' %>
-        <%= f.file_field :image  , class:'form-control image-file'  %><br>
-       
-        <img class="some-image"  />
       
     <% end %>
+     <button  type=button class="btn btn-default image-cancel" ><span class="glyphicon glyphicon-remove"></span></button>   
+    <img class="some-image"  />
+      
 </div>
 
 

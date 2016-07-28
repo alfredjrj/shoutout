@@ -13,12 +13,16 @@ class VenturesController < ApplicationController
        @posts = @venture.posts
       
    end 
+   
+   def edit
+       @venture = Venture.find(params[:id])
+   end 
     
    def create
         #  @user =   User.friendly.find(params[:id])
         #  @get_fame = @user.get_fame
-        @get_fame = current_user.get_fame
-        @venture = @get_fame.ventures.build(venture_params)
+        @profile = current_user.profile
+        @venture = @profile.ventures.build(venture_params)
         if @venture.save
          flash[:success] = "created!"
          redirect_to @current_user

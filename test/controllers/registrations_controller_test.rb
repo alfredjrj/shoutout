@@ -9,7 +9,7 @@ class RegistrationsControllerTest <  ActionDispatch::IntegrationTest
    test "can create user " do 
        assert_difference('User.count', 1) do
          post user_registration_path,
-         params: { user: { name: "alfred jay" , email: "alfredj@gmail.com"  , password: "alfred123" ,password_confirmation: "alfred123"}}
+         params: { user: { name: "alfred jay",  username: "alfredjay" , email: "alfredj@gmail.com"  , password: "alfred123" ,password_confirmation: "alfred123" , gender:true}}
       end
       assert_response :success
    end 

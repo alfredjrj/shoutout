@@ -18,7 +18,7 @@ class UserShowLayoutTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_select "a[href=?]", promote_path
     
-    @user.get_fame.ventures.each do  |venture| 
+    @user.profile.ventures.each do  |venture| 
     assert_select "a[href=?]", venture_path(@user, venture)
     # get venture_path(@user, venture)
    end  

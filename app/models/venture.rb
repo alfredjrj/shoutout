@@ -1,5 +1,5 @@
 class Venture < ActiveRecord::Base
-  belongs_to :get_fame
+  belongs_to :profile
   has_many :posts , dependent: :destroy
   
  
@@ -11,7 +11,7 @@ class Venture < ActiveRecord::Base
      
   validates :title, presence: true ,length: { maximum: 50 , minimum: 3}
   validates :goal,  presence: true , length: {maximum: 250 , minimum: 10} 
-  validates :get_fame_id, presence: true   
+  validates :profile_id, presence: true   
 end
 
 

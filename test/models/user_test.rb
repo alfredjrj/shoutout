@@ -36,9 +36,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid? , "gender boolean cant be null"
   end 
   
-  test "associated get_fame should be destroyed" do
+  test "associated profile should be destroyed" do
     @user.save
-    assert_difference 'GetFame.count', -1 do
+    assert_difference 'Profile.count', -1 do
       @user.destroy
     end
   end

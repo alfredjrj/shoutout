@@ -6,7 +6,7 @@ class PostsControllerTest <  ActionDispatch::IntegrationTest
 
   def setup
      @user =  users(:david)
-     @venture = @user.get_fame.ventures.first 
+     @venture = @user.profile.ventures.first 
      @post = @venture.posts.first 
   end
       

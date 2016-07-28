@@ -28,21 +28,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email # Only if using reconfirmable
       t.string :name
+      t.string :username
       t.boolean :gender
       t.date :dob
-      t.string :about
-      t.string :occupation
-      t.string :ethnicity
      
-      
-      
-      t.text :hobbies
-      t.text :interests
-      t.string :youtube
-      t.string :twitter
-      t.string :facebook
-      t.string :instagram
-
 
       ## Lockable
       t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
@@ -60,7 +49,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
-
+    
+    add_index :users, :username,             unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true

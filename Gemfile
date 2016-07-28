@@ -27,6 +27,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'jquery-turbolinks'
 
+gem 'twitter'
+gem 'omniauth-twitter'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

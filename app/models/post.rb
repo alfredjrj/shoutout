@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
    
 
   belongs_to :venture
-  belongs_to :get_fame
+  belongs_to :profile
   
  default_scope -> { order(created_at: :desc) }
   

@@ -5,14 +5,14 @@ one:
   created_at: <%= 18.minutes.ago %>
   image_file_name: two
   venture: one
-  get_fame: david
+  profile: david
 
 two:
   text: "MyText"
   created_at: <%= 3.minutes.ago %>
   image_file_name: two
   venture: two
-  get_fame: david
+  profile: david
 
 
 orange:

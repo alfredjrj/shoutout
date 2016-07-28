@@ -2,10 +2,10 @@
 
 <div class="thumbnail"> 
 
-<% @user.get_fame.ventures.each do |venture| %>
+<% @user.profile.ventures.each do |venture| %>
 
  
-   <div class=" img-thumbnail image" style="position:relative  ">
+   <div class=" img-thumbnail image" style="position:relative; width:80px; height:80px ; overflow:hidden ">
        <%= link_to image_tag(venture.image.url(:small)) , venture_path(@user,venture) %>
        <h3 class="image_text"><%= venture.title %></h3> 
    </div> 
@@ -25,6 +25,8 @@
    left: 20px; 
    width: 100%; 
    color: white;
+   font-size:16px;
+   /*overflow:hidden*/
 }
 
 </style>

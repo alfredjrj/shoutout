@@ -5,7 +5,7 @@ one:
   tags: MyString
   goal: MyString
   image_file_name: two
-  get_fame: david
+  profile: david
 
   
 two:
@@ -13,7 +13,7 @@ two:
   tags: MyString
   goal: MyString
   image_file_name: one
-  get_fame: david
+  profile: david
 
   
   
@@ -22,4 +22,4 @@ three:
   tags: MyString
   goal: MyString
   image_file_name: one
-  get_fame: steve
+  profile: steve

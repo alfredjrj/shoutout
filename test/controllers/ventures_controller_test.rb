@@ -10,7 +10,7 @@ class VenturesControllerTest <  ActionDispatch::IntegrationTest
     
   def setup
      @user =  users(:david)
-     @venture = @user.get_fame.ventures.first 
+     @venture = @user.profile.ventures.first 
   end
   
   test 'should get show' do 

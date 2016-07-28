@@ -27,15 +27,15 @@
 
 </div>
 
-<div class="col-md-6 ">
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#">User</a></li>
-  <li role="presentation"><a href="#">Account</a></li>
-  <li role="presentation"><a href="#">Social Media</a></li>
-  <li role="presentation"><a href="#">General</a></li>
+<div class="col-md-6 " >
+<ul class="nav nav-pills" style="position:fixed ; background-color:#333;margin-top:-20px" >
+  <li role="presentation" class="active"><a href="#user">User</a></li>
+  <li role="presentation"><a href="#account">Account</a></li>
+  <li role="presentation"><a href="#socialmedia">Social Media</a></li>
+  <li role="presentation"><a href="#general">General</a></li>
 </ul>
   
-<h2>  User   </h2>
+<h2 id="user">  User   </h2>
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -44,12 +44,14 @@
   
   <div class="field">
    <%= f.label :profile_pic %><br />
-   <%= f.file_field :image  , :class => 'form-control' %>
+   <%= f.file_field :image  , :class => 'form-control imagefile' %>
 </div> 
-
-  <div class="caption  thumbnail ">
-        <%= link_to image_tag(@user.image.url(:large)  )%>
+    <button  type=button class="btn btn-defaul  btn-block image_button" ><span class="glyphicon glyphicon-camera"></span></button> 
+       <!--<button  type=button class="btn btn-default image-cancel" ><span class="glyphicon glyphicon-remove"></span></button>   -->
+  <div class="caption thumbnail">
+       <%= link_to image_tag(@user.image.url(:large), class:"some-image")  %>
   </div>
+  
   <div class="field">
      <%= f.label :name %><br />
     <%= f.text_field :name, class: 'form-control' , :placeholder=>" fullname" %>
@@ -63,12 +65,12 @@
     <%= f.submit "Update" , class:"btn btn-primary btn-md" %>
   </div><br> 
 
-<h2>  Account  </h2>
+<h2 id="account">  Account  </h2>
 
   <div class="field">
       
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true , class:"form-control"  %>
+    <%= f.email_field :email, class:"form-control"  %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -99,46 +101,7 @@
  
 <% end %>
 
-
-<h2>  social media accounts </h2>
-
-  <%= form_for @user , remote:true  do |f| %>
- <div class="field">
-    <%= f.label :instagram %><br />
-    <%= f.text_field :instagram, autocomplete: "off"  , class:"form-control" %>
-  </div>
-   <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter, autocomplete: "off"  , class:"form-control" %>
-  </div>
-   <div class="field">
-    <%= f.label :facebook %><br />
-    <%= f.text_field :facebook, autocomplete: "off"  , class:"form-control" %>
-  </div>
-   <div class="field">
-    <%= f.label :youtube %><br />
-    <%= f.text_field :youtube, autocomplete: "off"  , class:"form-control" %>
-  </div>
-  
-
-
-
-<h2>  General  </h2>
-
-<div class="field">
-    <%= f.label :intrests %><br />
-    <%= f.text_field :interests, autocomplete: "off"  , class:"form-control" %>
-</div>
-
-<div class="field">
-    <%= f.label :about %><br />
-    <%= f.text_field :about, autocomplete: "off"  , class:"form-control" %>
-</div>
-
-
-
-<% end %> 
-
+<%= render 'profiles/edit' %>
 <h3>Cancel my account</h3>
 
 <p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

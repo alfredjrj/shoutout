@@ -10,14 +10,15 @@
             <section class="user_info">
                 <div class="row thumbnail" style="margin: auto; " >
                     <div class ="col-xs-6 col-md-4 " > 
-                        <div class="caption  thumbnail ">
+        
+                        <div >
+                                <%= link_to "Change Pic " , edit_user_registration_path( @user) ,  style:"position:absolute " %> 
+                          
                             <%= link_to image_tag(@user.image.url(:med)  )%>
                             <span class="user"><%= link_to @user.name, @user %></span>
-                             <%= @user.gender  %>
                             <p> followers  </p>
                             <p> following </p>
-                            <p> bytes</p>
-                            <p> good will </p>
+                          
                          </div>
                     </div>
                       
@@ -25,21 +26,23 @@
                         
                     
                       
-                        <h3> Bio</h3>
-                        <p > this wil be you bio gsfgs df sdf gsdfsdfsdfsdfsdf garg a dfasdfa sdf asdf asdfasdf asdf asddf asdf dfgs dfsdfo</p> 
+                        <h4> Bio   <%= link_to "Edit " , edit_user_registration_path( @user) + "#general" ,  style:"font-size:15px; ", class:"glyphicon glyphicon-pencil" %> </h4>
+                        <p > <%= @user.profile.bio  %></p> 
                     </div> 
                      
-                     <%= link_to "edit " , edit_user_registration_path( @user) ,  style:"font-size:28px; ", class:"glyphicon glyphicon-pencil" %> 
+                   
                 </div>
             </section>
 
            
            
-            <%= render "ventures/form" %><br>
+             <%= render "ventures/new" %><br>
             <%= render "ventures/index" %> 
     </div>
   
     <div class="col-sm-6 ">
+        
+     
         <%= render "posts/index" %>      
         
     </div>

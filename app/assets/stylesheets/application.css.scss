@@ -22,9 +22,11 @@
 
 .nav-pills > li.active >a, .btn-primary{
     
-    background-color:#cc0052 !important;
+    background-color:#00b3b3 !important;
 }
-
+// #00b3b3
+// #00e600
+// #cc0052
 // .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
 
 //   background-color: #A6A8C1;
@@ -59,13 +61,21 @@ body { padding-top: 90px;
   border-radius: 0 !important;
 }
 
-.image-file{
- display:none;  
+.imagefile{
+ display:none !important;  
 }
 .image-cancel{
  display:none;  
- position:relative;
- margin-left: 400px;
+ position: absolute; 
+//  top: 0px; 
+//   width: 100%; 
+  color:red;
+}
+
+.some-image{
+ height:150px; 
+ width:150;
+ display:none;  
 }
  
 

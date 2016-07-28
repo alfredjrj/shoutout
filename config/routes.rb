@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     # get  ':user_id/ventures/:id' => 'ventures#show'  , as: 'venture'
     # delete '/ventures/:id' => 'ventures#destroy' 
      #  resources :users
+      resources :profiles, only: [ :update, :edit, :show ]
      
         scope'/(:user_id)' do
+       
          resources :ventures  do
              resources :posts,  only: [ :create , :destroy]
          end 
