@@ -250,6 +250,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   jquery-turbolinks
+  omniauth
   omniauth-twitter
   paperclip
   pg

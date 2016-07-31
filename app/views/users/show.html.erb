@@ -28,6 +28,7 @@
                       
                         <h4> Bio   <%= link_to "Edit " , edit_user_registration_path( @user) + "#general" ,  style:"font-size:15px; ", class:"glyphicon glyphicon-pencil" %> </h4>
                         <p > <%= @user.profile.bio  %></p> 
+                          <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
                     </div> 
                      
                    

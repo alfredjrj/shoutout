@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527072532) do
+ActiveRecord::Schema.define(version: 20160730071350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160527072532) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -110,6 +121,7 @@ ActiveRecord::Schema.define(version: 20160527072532) do
     t.index ["profile_id"], name: "index_ventures_on_profile_id", using: :btree
   end
 
+  add_foreign_key "identities", "users"
   add_foreign_key "posts", "profiles"
   add_foreign_key "posts", "ventures"
   add_foreign_key "profiles", "users"

@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'jquery-turbolinks'
 
+gem 'omniauth'
 gem 'twitter'
 gem 'omniauth-twitter'
 

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
+  get 'auth/:provider/callback' ,to: 'users#home'
+  get 'auth/failure', to: redirect('/')
   
   get 'discover' => 'static_pages#discover'
-
+  
   
 
   devise_for :users,  :controllers => { registrations: 'registrations' }  
