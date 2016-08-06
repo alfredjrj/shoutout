@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'auth/:provider/callback' ,to: 'users#home'
-  get 'auth/failure', to: redirect('/')
+  get 'user/auth/:provider/callback' ,to: 'users#promote'
+  get 'user/auth/failure', to: redirect('/')
   
   get 'discover' => 'static_pages#discover'
   

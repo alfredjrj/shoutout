@@ -1,19 +1,21 @@
 
-
-<div class="thumbnail"> 
-
+<br> 
+<div class="thumbnail polaroid"> 
+ <div class=" img-thumbnail" style=" position:relative; width:80px; height:80px ; overflow:hidden ">
+    <%= render "ventures/new" %><br>
+  </div> 
+  
 <% @user.profile.ventures.each do |venture| %>
-
  
-   <div class=" img-thumbnail image" style="position:relative; width:80px; height:80px ; overflow:hidden ">
-       <%= link_to image_tag(venture.image.url(:small)) , venture_path(@user,venture) %>
+   <div class=" img-thumbnail " style="position:relative; width:80px; height:80px ; overflow:hidden ">
+       <%= link_to image_tag(venture.image.url(:med)) , venture_path(@user,venture) %>
        <h3 class="image_text"><%= venture.title %></h3> 
    </div> 
        
    <!--<span class="glyphicon glyphicon-pencil"></span>  -->
  
 <% end %>
- <h3> click here to see more</h3>
+<a> <h3> click here to see more</h3></a>
 </div>
 
 

@@ -4,31 +4,34 @@
 
 
 
-<row >
+<!--<row >-->
     <div class="col-sm-4 ">
-       <%=  render "layouts/sidenav_bar" %> 
+    
+      
             <section class="user_info">
-                <div class="row thumbnail" style="margin: auto; " >
-                    <div class ="col-xs-6 col-md-4 " > 
-        
+                <div class="row thumbnail polaroid" style="margin: auto; " >
+                    
+                     <%=  render "layouts/sidenav_bar" %> <br>
+                    <div class ="col-xs-6 col-md-5 well" > 
+                        <%= link_to "Change Pic " , edit_user_registration_path( @user) ,  style:"position:absolute " %> 
                         <div >
-                                <%= link_to "Change Pic " , edit_user_registration_path( @user) ,  style:"position:absolute " %> 
+                               
                           
-                            <%= link_to image_tag(@user.image.url(:med)  )%>
-                            <span class="user"><%= link_to @user.name, @user %></span>
+                            <%= link_to image_tag(@user.image.url(:large)  )%>
+                            
                             <p> followers  </p>
                             <p> following </p>
                           
                          </div>
                     </div>
                       
-                    <div class ="col-xs-6 col-md-4 " >
+                    <div class ="col-xs-6 col-md-5 " >
                         
-                    
+                    <h3 class="user"> <%= link_to @user.name, @user %></h3>
                       
                         <h4> Bio   <%= link_to "Edit " , edit_user_registration_path( @user) + "#general" ,  style:"font-size:15px; ", class:"glyphicon glyphicon-pencil" %> </h4>
                         <p > <%= @user.profile.bio  %></p> 
-                          <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
+                          
                     </div> 
                      
                    
@@ -37,16 +40,16 @@
 
            
            
-             <%= render "ventures/new" %><br>
+           
             <%= render "ventures/index" %> 
     </div>
   
     <div class="col-sm-6 ">
         
-     
+       <h2 style="color:#cc0052;"> recent updates</h2>
         <%= render "posts/index" %>      
         
     </div>
 
     
-</row>
+<!--</row>-->

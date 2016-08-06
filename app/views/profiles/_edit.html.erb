@@ -4,11 +4,13 @@
   <%= form_for @user.profile  do |f| %>
  <div class="field">
     <%= f.label :instagram %><br />
-    <%= f.text_field :instagram, autocomplete: "off"  , class:"form-control" %>
+     <%= link_to "Promote with instagram", "auth/twitter", id: "sign_in" %>
+    <!--<%= f.text_field :instagram, autocomplete: "off"  , class:"form-control" %>-->
   </div>
    <div class="field">
     <%= f.label :twitter %><br />
-    <%= f.text_field :twitter, autocomplete: "off"  , class:"form-control" %>
+    <!--<%= f.text_field :twitter, autocomplete: "off"  , class:"form-control" %>-->
+     <%= link_to "Promote with Twitter", "auth/twitter", id: "sign_in" %>
   </div>
    <div class="field">
     <%= f.label :facebook %><br />
