@@ -1,0 +1,40 @@
+
+
+<%=  @users.each do |user| %>
+      
+ <div class="col-sm-4 ">
+    
+      
+            <section class="user_info">
+                <div class="row thumbnail polaroid" style="margin: auto; " >
+                    
+                    <div class ="col-xs-6 col-md-5 well" > 
+            
+                        <div >
+                            <%= link_to image_tag user.image.url(:large) %>
+                            <%= user.profile.id %>
+                            <p> followers  </p>
+                            <p> following </p>
+                          
+                         </div>
+                    </div>
+                      
+                    <div class ="col-xs-6 col-md-5 " >
+                        
+                    <h3 class="user"> <%= link_to user.name, user %></h3>
+                        <p > <%= user.profile.bio  %></p> 
+                           <p > <%= user.gender  %></p> 
+                    </div> 
+                     
+                   
+                </div>
+ </div>
+
+<br>
+<% end %> 
+
+
+
+
+
+                     

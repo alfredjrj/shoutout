@@ -1,29 +1,8 @@
 
-<h2 id="socialmedia">  social media accounts </h2>
- <%= @user.profile.id %>
+
+
   <%= form_for @user.profile  do |f| %>
- <div class="field">
-    <%= f.label :instagram %><br />
-     <%= link_to "Promote with instagram", "auth/twitter", id: "sign_in" %>
-    <!--<%= f.text_field :instagram, autocomplete: "off"  , class:"form-control" %>-->
-  </div>
-   <div class="field">
-    <%= f.label :twitter %><br />
-    <!--<%= f.text_field :twitter, autocomplete: "off"  , class:"form-control" %>-->
-     <%= link_to "Promote with Twitter", "auth/twitter", id: "sign_in" %>
-  </div>
-   <div class="field">
-    <%= f.label :facebook %><br />
-    <%= f.text_field :facebook, autocomplete: "off"  , class:"form-control" %>
-  </div>
-   <div class="field">
-    <%= f.label :youtube %><br />
-    <%= f.text_field :youtube, autocomplete: "off"  , class:"form-control" %>
-  </div>
-  
-
-
-
+ 
 <h2 id="general">  General  </h2>
 
 <div class="field">

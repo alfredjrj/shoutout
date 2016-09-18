@@ -1,0 +1,19 @@
+---
+:User:
+  :image:
+  - :background
+  - :large
+  - :med
+  - :small
+:Post:
+  :image:
+  - :large
+  - :med
+  - :small
+  - :xlarge
+:Venture:
+  :image:
+  - :background
+  - :large
+  - :med
+  - :small

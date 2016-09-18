@@ -13,12 +13,13 @@
                     
                      <%=  render "layouts/sidenav_bar" %> <br>
                     <div class ="col-xs-6 col-md-5 well" > 
+                      <%= link_to "click to tweet" , promote_path(@user) %> 
                         <%= link_to "Change Pic " , edit_user_registration_path( @user) ,  style:"position:absolute " %> 
                         <div >
                                
-                          
-                            <%= link_to image_tag(@user.image.url(:large)  )%>
                             
+                            <%= link_to image_tag @user.image.url(:large) %>
+                            <%= @user.profile.id %>
                             <p> followers  </p>
                             <p> following </p>
                           

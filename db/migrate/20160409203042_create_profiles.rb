@@ -9,11 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
      
       
       t.text :interests
-      t.string :youtube
-      t.string :twitter
-      t.string :facebook
-      t.string :instagram
-      
+      t.text :hobbies
       t.integer :credits
 
 

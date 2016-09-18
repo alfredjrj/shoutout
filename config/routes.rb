@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-  get 'user/auth/:provider/callback' ,to: 'users#promote'
-  get 'user/auth/failure', to: redirect('/')
+#   get 'user/auth/:provider/callback' ,to: 'users#promote'
+#   get 'user/auth/failure', to: redirect('/')
   
   get 'discover' => 'static_pages#discover'
   
   
 
-  devise_for :users,  :controllers => { registrations: 'registrations' }  
+  devise_for :users,  :controllers => { registrations: 'registrations',  omniauth_callbacks: 'omniauth_callbacks' }  
+  
+
  
    root 'static_pages#welcome'
     
       get 'home' => 'users#home'
       get 'promote' => 'users#promote'
+      get 'users' => 'users#index'
       
      
 #     devise_scope :user do

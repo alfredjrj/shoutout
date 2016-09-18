@@ -4,6 +4,12 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
+  
+  # Rails.application.config.middleware.use OmniAuth::Builder do
+# #   provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
+#  provider :twitter,'eZG402S9yDURoXrHWwJf6K56Y' , 	'UDBB0yvHILfcMSgMXOnbGSdbOFwQbq47qYTlM9FY7vgXMKaYmM'
+# end
+
   config.secret_key = '6e92f05ce4a005367221db5103d73f7cbf12f6c7bbda8e1adcb9a4908017450856cf4c5d583c0522de43ef04e8945b939051883cd1f59f4239f0b05e4a3ea131'
 
   # ==> Mailer Configuration
@@ -12,8 +18,18 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   
-  # config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
+   config.omniauth :twitter, 'eZG402S9yDURoXrHWwJf6K56Y' , 	'UDBB0yvHILfcMSgMXOnbGSdbOFwQbq47qYTlM9FY7vgXMKaYmM'
+   
+   config.omniauth :facebook, '611780585695780' , '65391bb0620cba92bca7fcb19485d7f5',{
+     secure_image_url: true, 
+     image_size: 'large',
+scope: 'email,public_profile,user_birthday,user_likes',
+info_fields: 'email,name,gender,birthday,likes'
+}
+   # , scope: 'public_profile,email', info_fields: 'first_name,last_name,email'
 
+
+# fb  611780585695780    65391bb0620cba92bca7fcb19485d7f5
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

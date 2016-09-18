@@ -29,7 +29,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :unconfirmed_email # Only if using reconfirmable
       t.string :name
       t.string :username
-      t.boolean :gender
+      t.string :gender
       t.date :dob
      
 

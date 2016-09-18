@@ -4,18 +4,20 @@ class Identity < ApplicationRecord
   validates_uniqueness_of :uid, :scope => :provider
 
  
-
+  # def self.find_for_oauth(auth)
+  #   find_or_create_by(uid: auth.uid, provider: auth.provider)
+  # end
   
 
 
-  # def self.find_for_oauth(auth)
-  #   identity = find_by(provider: auth.provider, uid: auth.uid)
-  #   identity = create(uid: auth.uid, provider: auth.provider) if identity.nil?
-  #   identity.oauth_token = auth.credentials.token
-  #   identity.oauth_secret =auth.credentials.secret
-  #   identity.save
-  #   identity
-  # end
+  def self.find_for_oauth(auth)
+    identity = find_by(provider: auth.provider, uid: auth.uid)
+    identity = create(uid: auth.uid, provider: auth.provider) if identity.nil?
+    identity.oauth_token = auth.credentials.token
+    identity.oauth_secret =auth.credentials.secret
+    identity.save
+    identity
+  end
   
   # def twee(tweet)
   #   client = Twitter::REST::Client.new do |config|

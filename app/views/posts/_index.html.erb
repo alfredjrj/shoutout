@@ -22,8 +22,34 @@
     <a herf="" class=" glyphicon glyphicon-heart" style="font-size:21px; color:#cc0052;">   |</a>
     <a herf="" class="glyphicon glyphicon-retweet " style="font-size:25px; color:grey;">   </a>
     <a herf="" class=" glyphicon glyphicon-usd" style="font-size:13px; right:25px; top:-4px; color:#cc0052; ">   </a>
-
-
+   
+   
+   
+    <!--< link_to 'request', {controller: 'users', action: 'index', :name => 'Alfred Jayaraj'}  %>-->
+     <!--< link_to 'request', {controller: 'users', action: 'index', :dob => '1992-12-22'}  %>-->
+    
+     <button type="button"  class="btn btn-primary"  data-toggle="modal" data-target="#request">request</button>
+     <div class="modal fade" id="request" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <div class="modal-body">
+                    <%= form_for(@user, url: users_path, method: :get ) do |f| %>
+                     
+                     <%=  f.label "gender" %> 
+                        <select name="user[gender]" >
+                          <option value="both">both</option>
+                          <option value="male">male</option>
+                          <option value="female">female</option>
+                        </select>
+                        
+                     <%= f.submit "query",  class:'btn btn-primary btn-md btn-block' %> 
+                    <% end %> 
+                   
+                </div>
+          </div>
+        </div>
+      </div>
+   
 </div>
 
 <% end %>

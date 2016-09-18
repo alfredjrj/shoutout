@@ -14,13 +14,17 @@
 david:
   name: David Heinemeier Hansson
   email: david@gmail.com
-  gender: true
+  username:  DavidHeinemeier
+  gender: male
+  dob: 1992-11-23
   encrypted_password: david1234
  
 steve:
   name: Steve Ross Kellock
   email: steve@gmail.com
-  gender: false
+  username: SteveRoss
+  gender: male
+  dob: 1993-11-23
   encrypted_password: steve1234
   
   

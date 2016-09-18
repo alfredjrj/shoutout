@@ -11,7 +11,7 @@
          <div class="caption thumbnail"  style="position:relative">
              
        <a class="glyphicon glyphicon-remove image-cancel" ></a> <br>
-       <%= link_to image_tag(@venture.image.url(:large), class:"some-image")  %>
+       <%= link_to image_tag @venture.image.url(:large), class:"some-image" ,  size: "200x200"  %>
         </div>
         <%= f.submit "save", :class => 'btn btn-primary btn-md btn-block' %>
        

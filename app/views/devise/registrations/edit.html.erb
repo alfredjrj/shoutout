@@ -1,19 +1,4 @@
- <!--t.string :name-->
- <!--     t.boolean :gender-->
- <!--     t.date :dob-->
- <!--     t.string :about-->
- <!--     t.string :occupation-->
- <!--     t.string :ethnicity-->
-     
-      
-      
- <!--     t.text :hobbies-->
- <!--     t.text :interests-->
- <!--     t.string :youtube-->
- <!--     t.string :twitter-->
- <!--     t.string :facebook-->
- <!--     t.string :instagram-->
-
+ 
 
 <div class"row"> 
 
@@ -49,7 +34,7 @@
     <button  type=button class="btn btn-defaul  btn-block image_button" ><span class="glyphicon glyphicon-camera"></span></button> 
        <!--<button  type=button class="btn btn-default image-cancel" ><span class="glyphicon glyphicon-remove"></span></button>   -->
   <div class="caption thumbnail">
-       <%= link_to image_tag(@user.image.url(:large), class:"some-image")  %>
+       <%= link_to image_tag @user.image.url(:large), class:"some-image" , size: "200x200"  %>
   </div>
   
   <div class="field">
@@ -58,53 +43,60 @@
   </div>
   
    <div class="field">
-      <%= f.select :gender, [ ["gender", "nil"] , ["Male", 1], ["Female", 0] ], {}, {class: "form-control"} %>
+     <%= f.label :username %><br />
+    <%= f.text_field :username, class: 'form-control' , :placeholder=>" fullname" %>
   </div>
-
+  
  <div class="actions">
     <%= f.submit "Update" , class:"btn btn-primary btn-md" %>
   </div><br> 
 
-<h2 id="account">  Account  </h2>
 
-  <div class="field">
+<h2 id="socialmedia">  social media accounts </h2>
+
+<%= link_to image_tag("sign-in-with-twitter-link.png" ,  size: "150x30"),  "auth/twitter", id: "sign_in"%>    
+
+<%= render "profiles/edit" %> 
+
+<!--<h2 id="account">  Account  </h2>-->
+
+<!--  <div class="field">-->
       
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class:"form-control"  %>
-  </div>
+<!--    <%= f.label :email %><br />-->
+<!--    <%= f.email_field :email, class:"form-control"  %>-->
+<!--  </div>-->
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+<!--  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>-->
+<!--    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>-->
+<!--  <% end %>-->
 
   
-  <div class="field">
-    <%= f.label :new_password %> <br />
-    <%= f.password_field :password, autocomplete: "new-password"  , class:"form-control"  %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :new_password %> <br />-->
+<!--    <%= f.password_field :password, autocomplete: "new-password"  , class:"form-control"  %>-->
+<!--  </div>-->
   
 
-  <div class="field">
-    <%= f.label :new_password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off"  , class:"form-control" %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :new_password_confirmation %><br />-->
+<!--    <%= f.password_field :password_confirmation, autocomplete: "off"  , class:"form-control" %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" , class:"form-control"  %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />-->
+<!--    <%= f.password_field :current_password, autocomplete: "off" , class:"form-control"  %>-->
+<!--  </div>-->
   
  
-  <div class="actions">
-    <%= f.submit "Update" , class:"btn btn-primary btn-md" %>
-  </div><br> 
+<!--  <div class="actions">-->
+<!--    <%= f.submit "Update" , class:"btn btn-primary btn-md" %>-->
+<!--  </div><br> -->
  
-<% end %>
+<!--<% end %>-->
 
-<%= render 'profiles/edit' %>
-<h3>Cancel my account</h3>
 
-<p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<!--<h3>Cancel my account</h3>-->
+<!--<p> < button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>-->
 
 <%= link_to "Back", :back %>
 

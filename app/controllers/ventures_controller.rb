@@ -23,7 +23,7 @@ class VenturesController < ApplicationController
         #  @get_fame = @user.get_fame
         @profile = current_user.profile
         @venture = @profile.ventures.build(venture_params)
-        if @venture.save
+        if @venture.save!
          flash[:success] = "created!"
          redirect_to @current_user
         else 
