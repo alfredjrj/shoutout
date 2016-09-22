@@ -15,8 +15,17 @@ class UsersController < ApplicationController
     
     def index 
        @users = User.where(nil) 
+       
        @users = @users.gender(params[:gender]) if params[:gender].present?
-       raise @users.inspect
+       
+       
+       respond_to do |format|
+        format.html
+        format.json
+        format.js   {}
+      end
+      # @users = @users.gender('male')
+      # raise @users.inspect
       # @users = @users.name(params[:name]) if params[:name].present?
       # @users = @users.dob(params[:dob]) if params[:dob].present?
        

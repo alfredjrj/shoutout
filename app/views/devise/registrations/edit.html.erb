@@ -47,6 +47,13 @@
     <%= f.text_field :username, class: 'form-control' , :placeholder=>" fullname" %>
   </div>
   
+  
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" , class:"form-control"  %>
+  </div>
+  
+  
  <div class="actions">
     <%= f.submit "Update" , class:"btn btn-primary btn-md" %>
   </div><br> 
@@ -82,10 +89,6 @@
 <!--    <%= f.password_field :password_confirmation, autocomplete: "off"  , class:"form-control" %>-->
 <!--  </div>-->
 
-<!--  <div class="field">-->
-<!--    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />-->
-<!--    <%= f.password_field :current_password, autocomplete: "off" , class:"form-control"  %>-->
-<!--  </div>-->
   
  
 <!--  <div class="actions">-->

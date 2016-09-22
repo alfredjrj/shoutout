@@ -5,13 +5,12 @@
 
 
 <!--<row >-->
-    <div class="col-sm-4 ">
+    <div class="col-sm-3 ">
     
       
             <section class="user_info">
                 <div class="row thumbnail polaroid" style="margin: auto; " >
                     
-                     <%=  render "layouts/sidenav_bar" %> <br>
                     <div class ="col-xs-6 col-md-5 well" > 
                       <%= link_to "click to tweet" , promote_path(@user) %> 
                         <%= link_to "Change Pic " , edit_user_registration_path( @user) ,  style:"position:absolute " %> 
@@ -28,7 +27,7 @@
                       
                     <div class ="col-xs-6 col-md-5 " >
                         
-                    <h3 class="user"> <%= link_to @user.name, @user %></h3>
+                    <h5 class="user"> <%= link_to @user.name, @user %></h5>
                       
                         <h4> Bio   <%= link_to "Edit " , edit_user_registration_path( @user) + "#general" ,  style:"font-size:15px; ", class:"glyphicon glyphicon-pencil" %> </h4>
                         <p > <%= @user.profile.bio  %></p> 
@@ -45,11 +44,35 @@
             <%= render "ventures/index" %> 
     </div>
   
-    <div class="col-sm-6 ">
+    <div class="col-md-6 " >
         
        <h2 style="color:#cc0052;"> recent updates</h2>
         <%= render "posts/index" %>      
         
+    </div>
+    
+    <div class="col-sm-3 " >
+        <form class="navbar-form navbar-right" >
+               <input size="30" type="text" class="form-control" placeholder="go for it">
+                <%= link_to "  #complaint " %>
+                <%= link_to "  #idea  " %>
+                <%= link_to "  #proudct" %>
+                <%= link_to "  #content" %>
+               <button class="btn btn-primary btn-md btn-block"> post </button>
+              
+        </form>
+        <br> 
+        <h4 style="color:#337ab7;">   OUT OF IDEAS ? .. </h4>
+        <p>  give them the ability to fillter these coming posts via 
+          age  , gender , profession,  and catorory like content . idea?
+          as well as support from the masses.
+        </p>
+        <br>
+         <br>
+         <h5 style="color:#337ab7;">   some content suggiestions .. </h5>
+        <br>
+         <br>
+         <h5 style="color:#337ab7;">   ideas .. </h5>
     </div>
 
     

@@ -3,13 +3,14 @@
 <% @posts.each  do |post| %>
 
 <div class="thumbnail polaroid" style="margin-bottom:-4px;">
-     <h3> <span class="user"><%= link_to post.venture.title, venture_path(@user, post.venture) %></span></h3>
-    <div class=" img-thumbnail image">
-        <%= link_to image_tag(post.venture.image.url(:small)) %>
-    </div> 
-   
+      
+    <span style="float:left;">
+        <%= link_to image_tag(post.venture.image.url(:small) ,:style=>'border-radius: 5px') %>
+     
+    </span> 
+     <h3  class="user"><%= link_to post.venture.title, venture_path(@user, post.venture) %></h3>
     <%=  post.text %>
-    <%= link_to image_tag(post.image.url(:large) ) %><br>
+    <%= link_to image_tag(post.image.url(:xlarge) ) %><br>
     <%=  post.tags %>
    
     <span class="timestamp">
@@ -18,32 +19,71 @@
     
     <%= link_to "              |" , venture_post_path( post.venture ,post) ,  style:"font-size:21px; color:#cc0052;", class:"glyphicon glyphicon-remove" , method: :delete %> 
     <a herf="" class="glyphicon glyphicon-retweet " style="font-size:21px;color:grey;">  | </a>
-    <a herf="" class=" glyphicon glyphicon-usd" style="font-size:21px;color:grey;">   |</a>
+    <!--<a herf="" class=" glyphicon glyphicon-usd" style="font-size:21px;color:grey;">   |</a>-->
     <a herf="" class=" glyphicon glyphicon-heart" style="font-size:21px; color:#cc0052;">   |</a>
-    <a herf="" class="glyphicon glyphicon-retweet " style="font-size:25px; color:grey;">   </a>
-    <a herf="" class=" glyphicon glyphicon-usd" style="font-size:13px; right:25px; top:-4px; color:#cc0052; ">   </a>
+    <!--<a herf="" class="glyphicon glyphicon-retweet " style="font-size:25px; color:grey;">   </a>-->
+    <!--<a herf="" class=" glyphicon glyphicon-usd" style="font-size:13px; right:25px; top:-4px; color:#cc0052; ">   </a>-->
    
    
    
-    <!--< link_to 'request', {controller: 'users', action: 'index', :name => 'Alfred Jayaraj'}  %>-->
-     <!--< link_to 'request', {controller: 'users', action: 'index', :dob => '1992-12-22'}  %>-->
-    
      <button type="button"  class="btn btn-primary"  data-toggle="modal" data-target="#request">request</button>
      <div class="modal fade" id="request" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
                 <div class="modal-body">
-                    <%= form_for(@user, url: users_path, method: :get ) do |f| %>
+                    <%= form_tag  users_path, method: 'get' , id: 'users_search',   remote: true do %>
                      
-                     <%=  f.label "gender" %> 
-                        <select name="user[gender]" >
-                          <option value="both">both</option>
+                     <%= label_tag 'gender' %>
+                    
+                   
+                        <select name="gender" >
+                          <option value="">both</option>
                           <option value="male">male</option>
                           <option value="female">female</option>
                         </select>
                         
-                     <%= f.submit "query",  class:'btn btn-primary btn-md btn-block' %> 
+                      <%= label_tag 'channels' %>
+                         <select name="channels" >
+                          <option value="all">all</option>
+                          <option value="facebook">facebook</option>
+                          <option value="twitter">twitter</option>
+                          <option value="instagram">instagram</option>
+                          <option value="linkden">linkden</option>
+                      </select>
+                        
+                      <%= label_tag 'type' %>
+                         <select name="type" >
+                          <option value="poll">poll</option>
+                          <option value="promote">promote</option>
+                          <option value="showdown">verses</option>
+                          <option value="advice">advice</option>
+                        </select>
+                        
+                     <%= label_tag 'age' %>
+                      <%= number_field_tag 'age', '12', max: 80 , min: 8 %> to <%= number_field_tag 'age', '75', max: 80 , min: 8 %>
+                      
+                    <%= label_tag 'requests' %>
+                      <%= number_field_tag 'age', '1', max: 1000 , min: 1 %> 
+                      
+                    <%= label_tag 'likes' %>
+                      <%= text_field_tag 'age', '1', max: 1000 , min: 1 %> 
+                      
+                   <%= label_tag 'occupation' %>
+                      <%= text_field_tag 'age', '1', max: 1000 , min: 1 %> 
+                      
+                      
+                    <%= submit_tag 'search' , class:'btn btn-primary btn-md btn-block' %>
+                    
+                    
+                    <div id="users"> 
+                    
+
+                                       
+                    </div>
                     <% end %> 
+                    
+                    
+                   
                    
                 </div>
           </div>
@@ -53,5 +93,4 @@
 </div>
 
 <% end %>
-
 

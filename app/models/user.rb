@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates :gender  , presence: true 
   
         
- 
+    # scope :location, -> (location_id) { where location_id: location_id }
     scope :gender, -> (gender) { where gender: gender }
     # scope :dob, -> (dob) { where dob: dob } 
     # scope :name, -> (name) { where name: name } 
